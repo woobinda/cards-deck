@@ -12,7 +12,7 @@ class Tests(unittest.TestCase):
         self.assertEqual(deck.cards[0].value, '2')
 
     def test_get_card_by_index(self):
-        card = deck.get_card_by_index(5)
+        card = deck[5]
         self.assertEqual(card.suit, 'Hearts')
         self.assertEqual(card.value, '6')
 

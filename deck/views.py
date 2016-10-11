@@ -35,7 +35,7 @@ def choice_1():
         if card_index == 0:
             print(warning)
             return choice_1()
-        card = deck.get_card_by_index(card_index)
+        card = deck[card_index]
         print('\nВыбраная карта: %s\n' % card)
         return card, run(card)
     except SyntaxError:
@@ -74,10 +74,10 @@ def choice_5():
     print('Выберите две карты для сравнения, по индексу\n')
     try:
         card1_index = input('Первая карта: ')
-        card1 = deck.get_card_by_index(card1_index)
+        card1 = deck[card1_index]
         print('\n%s\n' % card1)
         card2_index = input('Вторая карта: ')
-        card2 = deck.get_card_by_index(card2_index)
+        card2 = deck[card2_index]
         print('\n%s\n' % card2)
         most_value_card = deck.comparison(card1, card2)
         print('%s\n') % most_value_card

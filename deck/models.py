@@ -18,7 +18,7 @@ class Deck:
     def __init__(self, cards=[]):
         self.cards = cards
 
-    def get_card_by_index(self, index):
+    def __getitem__(self, index):
         return self.cards[index - 1]
 
     def get_card_position(self, card):
@@ -46,9 +46,6 @@ class Deck:
 
     def __len__(self):
         return len(self.cards)
-
-    def __getitem__(self, index):
-        return self.cards[index - 1]
 
     def __repr__(self):
         for card in enumerate(self.cards):
