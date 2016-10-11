@@ -35,7 +35,7 @@ class Tests(unittest.TestCase):
         self.assertEqual(card2.value, 'Ace')
         self.assertEqual(deck.comparison(card1, card2), 'Ace|Diamonds - most value card')
         card3 = deck[11]
-        card4 = deck[11]
+        card4 = deck[24]
         self.assertEqual(card3.value, 'Queen')
         self.assertEqual(card4.value, 'Queen')
         self.assertEqual(deck.comparison(card3, card4), 'Cards is equal')

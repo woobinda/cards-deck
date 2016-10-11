@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from models import Card, Deck
 
-card_values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
+values_table = [['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], ['7', 7], ['8', 8], ['9', 9], \
+                    ['10', 10], ['Jack', 11], ['Queen', 12], ['King', 13], ['Ace', 14]]
 card_suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
 warning = '\nИндекс карты (число), должен находиться в диапозоне (1 ~ 52)\n'
 menu = ("""\n
@@ -21,8 +22,8 @@ menu = ("""\n
 def create_deck():
     deck = Deck()
     for suit in card_suits:
-        for value in card_values:
-            deck.cards.append(Card(value, suit))
+        for value in values_table:
+            deck.cards.append(Card(value[0], suit, value[1]))
     return deck
 
 

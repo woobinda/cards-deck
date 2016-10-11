@@ -3,17 +3,16 @@ import random
 
 
 class Card:
-    def __init__(self, value, suit):
+    def __init__(self, value, suit, cost):
         self.value = value
         self.suit = suit
+        self.cost = cost
 
     def __repr__(self):
         return '%s|%s' % (self.value, self.suit)
 
 
 class Deck:
-    values_table = {'2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, \
-                    '10': 10, 'Jack': 11, 'Queen': 12, 'King': 13, 'Ace': 14}
 
     def __init__(self, cards=[]):
         self.cards = cards
@@ -32,9 +31,9 @@ class Deck:
 
     def comparison(self, card1, card2):
         cards = (card1, card2)
-        if self.values_table[card1.value] != self.values_table[card2.value]:
-            biggest_card_value = max([self.values_table[card.value] for card in cards])
-            most_value_card = [card for card in cards if self.values_table[card.value] == biggest_card_value][0]
+        if card1.cost != card2.cost:
+            biggest_card_cost = max([card1.cost, card2.cost])
+            most_value_card = [card for card in cards if card.cost == biggest_card_cost][0]
             return '%s - most value card' % most_value_card
         return 'Cards is equal'
 
