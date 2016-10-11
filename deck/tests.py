@@ -17,10 +17,10 @@ class Tests(unittest.TestCase):
         self.assertEqual(card.value, '6')
 
     def test_get_card_position(self):
-        card = deck.cards[25]
+        card = deck[25]
         self.assertEqual(card.suit, 'Diamonds')
-        self.assertEqual(card.value, 'Ace')
-        self.assertEqual(deck.get_card_position(card), 26)
+        self.assertEqual(card.value, 'King')
+        self.assertEqual(deck.get_card_position(card), 25)
 
     def test_get_random_card(self):
         random_card1 = deck.get_random_card()

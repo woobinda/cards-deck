@@ -51,7 +51,7 @@ def choice_1():
 
 def choice_2(card):
     try:
-        print '\nПозиция выбранной карты: %s\n' % deck.get_card_position(card)
+        print ('\nПозиция выбранной карты: %s\n' % deck.get_card_position(card))
         return deck.get_card_position(card)
     except ValueError:
         print('\nКарта не выбрана, выберите карту используя пункт (1 или 3)\n')
@@ -123,7 +123,7 @@ def choice_7():
         value_index = input('\nВыберите значение карты по индексу: ')
         value = card_values[value_index - 1]
         print('\n')
-        print '%s' % deck.card_sort_for_value(value)
+        print('%s') % deck.card_sort_for_value(value)
         print('\n')
         return deck.card_sort_for_value(value)
     except SyntaxError:

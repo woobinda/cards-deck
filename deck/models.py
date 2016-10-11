@@ -47,6 +47,9 @@ class Deck:
     def __len__(self):
         return len(self.cards)
 
+    def __getitem__(self, index):
+        return self.cards[index - 1]
+
     def __repr__(self):
         for card in enumerate(self.cards):
             print(card[0] + 1, card[1])
