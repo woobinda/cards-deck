@@ -118,6 +118,7 @@ def choice_6():
 
 def choice_7():
     print('\nДоступные значения:\n')
+    card_values = [value[0] for value in values_table]
     for value in enumerate(card_values):
         print(value[0] + 1, value[1])
     try:
