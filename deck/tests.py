@@ -29,13 +29,13 @@ class Tests(unittest.TestCase):
         self.assertNotEqual(random_card1, random_card2, random_card3)
 
     def test_comparison(self):
-        card1 = deck.cards[5]
-        card2 = deck.cards[25]
+        card1 = deck[6]
+        card2 = deck[26]
         self.assertEqual(card1.value, '7')
         self.assertEqual(card2.value, 'Ace')
         self.assertEqual(deck.comparison(card1, card2), 'Ace|Diamonds - most value card')
-        card3 = deck.cards[10]
-        card4 = deck.cards[10]
+        card3 = deck[11]
+        card4 = deck[11]
         self.assertEqual(card3.value, 'Queen')
         self.assertEqual(card4.value, 'Queen')
         self.assertEqual(deck.comparison(card3, card4), 'Cards is equal')
