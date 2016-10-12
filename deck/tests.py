@@ -33,12 +33,17 @@ class Tests(unittest.TestCase):
         card2 = deck[26]
         self.assertEqual(card1.value, '7')
         self.assertEqual(card2.value, 'Ace')
-        self.assertEqual(deck.comparison(card1, card2), 'Ace|Diamonds - most value card')
-        card3 = deck[11]
-        card4 = deck[24]
-        self.assertEqual(card3.value, 'Queen')
-        self.assertEqual(card4.value, 'Queen')
-        self.assertEqual(deck.comparison(card3, card4), 'Cards is equal')
+        self.assertEqual(deck.comparison(card1, card2), -1)
+        card3 = deck[12]
+        card4 = deck[1]
+        self.assertEqual(card3.value, 'King')
+        self.assertEqual(card4.value, '2')
+        self.assertEqual(deck.comparison(card3, card4), 1)
+        card5 = deck[11]
+        card6 = deck[24]
+        self.assertEqual(card5.value, 'Queen')
+        self.assertEqual(card6.value, 'Queen')
+        self.assertEqual(deck.comparison(card5, card6), 0)
 
     def test_card_sort_for_suit(self):
         hearts_cards = deck.card_sort_for_suit('Clubs')

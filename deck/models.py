@@ -3,7 +3,10 @@ import random
 
 
 class Card:
-    def __init__(self, value, suit, cost):
+    """
+    Object class to create a playing card.
+    """
+    def __init__(self, value, cost, suit):
         self.value = value
         self.suit = suit
         self.cost = cost
@@ -13,7 +16,10 @@ class Card:
 
 
 class Deck:
-
+    """
+    Object class to create a deck of playing card.
+    All the cards are placed in an array of 'self.cards'.
+    """
     def __init__(self, cards=[]):
         self.cards = cards
 
@@ -30,12 +36,11 @@ class Deck:
         return random.shuffle(self.cards)
 
     def comparison(self, card1, card2):
-        cards = (card1, card2)
-        if card1.cost != card2.cost:
-            biggest_card_cost = max([card1.cost, card2.cost])
-            most_value_card = [card for card in cards if card.cost == biggest_card_cost][0]
-            return '%s - most value card' % most_value_card
-        return 'Cards is equal'
+        if card1.cost > card2.cost:
+            return 1
+        if card1.cost < card2.cost:
+            return -1
+        return 0
 
     def card_sort_for_suit(self, suit):
         return [card for card in self.cards if card.suit == suit]

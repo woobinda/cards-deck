@@ -1,10 +1,16 @@
 # -*- coding: utf-8 -*-
 from models import Card, Deck
 
-values_table = [['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], ['7', 7], ['8', 8], ['9', 9], \
-                    ['10', 10], ['Jack', 11], ['Queen', 12], ['King', 13], ['Ace', 14]]
-card_suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
-warning = '\nИндекс карты (число), должен находиться в диапозоне (1 ~ 52)\n'
+
+# The values and the value of cards to build a card deck with script create_deck()
+values_table = [['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], \
+                ['7', 7], ['8', 8], ['9', 9], ['10', 10], ['Jack', 11], \
+                ['Queen', 12], ['King', 13], ['Ace', 14]]
+
+
+card_suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']      #Array of card suits
+warning = '\nИндекс карты (число), должен находиться в диапозоне (1 ~ 52)\n'    #Default exception message
+
 menu = ("""\n
 Доступные опции:\n
 1.Выбор карты по положению в колоде
@@ -19,17 +25,20 @@ menu = ("""\n
 \n""")
 
 
-def create_deck():
+def create_deck():          #Script to create a deck of 52 playing cards
     deck = Deck()
     for suit in card_suits:
         for value in values_table:
-            deck.cards.append(Card(value[0], suit, value[1]))
+            deck.cards.append(Card(value[0], value[1], suit))
     return deck
 
 
-deck = create_deck()
+deck = create_deck()        #Established deck of playing cards
 
 
+"""
+If the user selects a menu item, call the function appropriate choice.
+"""
 def choice_1():
     try:
         card_index = input('Введите индекс карты (1 ~ 52): ')
@@ -80,9 +89,16 @@ def choice_5():
         card2_index = input('Вторая карта: ')
         card2 = deck[card2_index]
         print('\n%s\n' % card2)
-        most_value_card = deck.comparison(card1, card2)
-        print('%s\n') % most_value_card
-        return most_value_card
+        result = deck.comparison(card1, card2)
+        if result == 1:
+            print('%s > %s\n')%(card1, card2)
+            return 1
+        if result == -1:
+            print('%s < %s\n')%(card1, card2)
+            return -1
+        else:
+            print('Cards equal\n')
+            return 0
     except SyntaxError:
         print(warning)
         return choice_5()
@@ -149,6 +165,9 @@ def choice_9():
 
 
 def run(card=None):
+    """
+    A recursive function that provides the user interface to interact with a deck of playing cards.
+    """
     try:
         choice = input('Введите номер опции: ')
         if choice not in range(1, 10):
