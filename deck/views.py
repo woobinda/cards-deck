@@ -1,15 +1,13 @@
 # -*- coding: utf-8 -*-
 from models import Card, Deck
 
-
 # The values and the value of cards to build a card deck with script create_deck()
 values_table = [['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], \
                 ['7', 7], ['8', 8], ['9', 9], ['10', 10], ['Jack', 11], \
                 ['Queen', 12], ['King', 13], ['Ace', 14]]
 
-
-card_suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']      #Array of card suits
-warning = '\nИндекс карты (число), должен находиться в диапозоне (1 ~ 52)\n'    #Default exception message
+card_suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']  # Array of card suits
+warning = '\nИндекс карты (число), должен находиться в диапозоне (1 ~ 52)\n'  # Default exception message
 
 menu = ("""\n
 Доступные опции:\n
@@ -25,7 +23,7 @@ menu = ("""\n
 \n""")
 
 
-def create_deck():          #Script to create a deck of 52 playing cards
+def create_deck():  # Script to create a deck of 52 playing cards
     deck = Deck()
     for suit in card_suits:
         for value in values_table:
@@ -33,12 +31,13 @@ def create_deck():          #Script to create a deck of 52 playing cards
     return deck
 
 
-deck = create_deck()        #Established deck of playing cards
-
+deck = create_deck()  # Established deck of playing cards
 
 """
 If the user selects a menu item, call the function appropriate choice.
 """
+
+
 def choice_1():
     try:
         card_index = input('Введите индекс карты (1 ~ 52): ')
@@ -91,14 +90,14 @@ def choice_5():
         print('\n%s\n' % card2)
         result = deck.comparison(card1, card2)
         if result == 1:
-            print('%s больше чем %s\n')%(card1, card2)
-            return 1
+            print('%s больше чем %s\n') % (card1, card2)
+            return result
         if result == -1:
-            print('%s меньше чем %s\n')%(card1, card2)
-            return -1
+            print('%s меньше чем %s\n') % (card1, card2)
+            return result
         else:
-            print('%s равна по значениею %s\n')%(card1, card2)
-            return 0
+            print('%s равна по значениею %s\n') % (card1, card2)
+            return result
     except SyntaxError:
         print(warning)
         return choice_5()
