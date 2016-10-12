@@ -91,13 +91,13 @@ def choice_5():
         print('\n%s\n' % card2)
         result = deck.comparison(card1, card2)
         if result == 1:
-            print('%s > %s\n')%(card1, card2)
+            print('%s больше чем %s\n')%(card1, card2)
             return 1
         if result == -1:
-            print('%s < %s\n')%(card1, card2)
+            print('%s меньше чем %s\n')%(card1, card2)
             return -1
         else:
-            print('Cards equal\n')
+            print('%s равна по значениею %s\n')%(card1, card2)
             return 0
     except SyntaxError:
         print(warning)
