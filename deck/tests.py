@@ -46,8 +46,8 @@ class Tests(unittest.TestCase):
         self.assertEqual(deck.comparison(card5, card6), 0)
 
     def test_card_sort_for_suit(self):
-        hearts_cards = deck.card_sort_for_suit('Clubs')
-        self.assertEqual([card.suit for card in hearts_cards], ['Clubs'] * 13)
+        clubs_cards = deck.card_sort_for_suit('Clubs')
+        self.assertEqual([card.suit for card in clubs_cards], ['Clubs'] * 13)
 
     def test_card_sort_for_values(self):
         jack_cards = deck.card_sort_for_value('Jack')

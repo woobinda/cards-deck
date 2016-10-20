@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from models import Card, Deck
 
-# The values and the value of cards to build a card deck with script create_deck()
+# The costs and the values of cards to build a card deck with script create_deck()
 values_table = [['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], \
                 ['7', 7], ['8', 8], ['9', 9], ['10', 10], ['Jack', 11], \
                 ['Queen', 12], ['King', 13], ['Ace', 14]]
